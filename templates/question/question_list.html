@@ -2,8 +2,8 @@
 {% block content %}
 {% for question in object_list %}
 <div class="panel">
-     <h3>{{ question.title }}</h3>
-     <p>Asked by {{ question.user.username }} on {{ question.created_at }}</p>
+  <h3>{{ question.title }}</h3>
+  <p>Asked by {{ question.user.username }} on {{ question.created_at }}</p>
 </div>
 {% endfor %}
 {% endblock %}
