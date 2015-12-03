@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
 from .models import *
 
@@ -16,3 +16,8 @@ class QuestionCreateView(CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(QuestionCreateView, self).form_valid(form)
+      
+class QuestionListView(ListView):
+    model = Question
+    template_name = "question/question_list.html"
+   
