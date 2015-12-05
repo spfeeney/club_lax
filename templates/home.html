@@ -2,11 +2,13 @@
 {% block content %}
 {% if user.is_authenticated %}
 <div class="jumbotron">
-  <h1>Welcome Back!</h1>
+  <h1>Sleeping Giants Lacrosse Club</h1>
+  <p> </p>
+  <p><iframe width="854" height="480" src="https://www.youtube.com/embed/j_F5PCJEVJk" frameborder="0" allowfullscreen></iframe></p>
 </div>
 {% else %}
 <div class="jumbotron">
-  <h1>Welcome back to SGLC!</h1>
+  <h1>Welcome to Sleeping Giants Lacrosse</h1>
   <p>The offical website of the Sleeping Giants Lacrosse Club!</p>
   <p><a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}">Create Account</a></p>
 </div>
