@@ -10,6 +10,7 @@
 {% if answers.count > 0 %}
 {% if answer.user == user %}
   <p><a href="{% url 'answer_update' question_pk=question.id answer_pk=answer.id %}">Edit answer</a></p>
+  <p><a href="{% url 'answer_delete' question_pk=question.id answer_pk=answer.id %}">delete answer</a></p>
 {% endif %}
 <h3>{{ answers.count }} Answer{{ answers.count|pluralize }}:</h3>
 {% endif %}

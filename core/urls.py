@@ -12,5 +12,6 @@ urlpatterns = patterns('',
                         url(r'^question/delete/(?P<pk>\d+)/$', QuestionDeleteView.as_view(), name='question_delete'),
                         url(r'^question/(?P<pk>\d+)/answer/create/$', AnswerCreateView.as_view(), name='answer_create'),
                         url(r'^question/(?P<question_pk>\d+)/answer/update/(?P<answer_pk>\d+)/$', AnswerUpdateView.as_view(), name='answer_update'),
+                       url(r'^question/(?P<question_>\d+)/answer/delete/(?P<answer_pk>\d+)/$', AnswerDeleteView.as_view(), name='answer_delete'),
                         url(r'^roster/$', Roster.as_view(), name='roster'),
                       )
