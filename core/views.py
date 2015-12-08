@@ -39,12 +39,12 @@ class QuestionDetailView(DetailView):
     template_name = "question/question_detail.html"
 
     def get_context_data(self, **kwargs):
-      rating = Answer.objects.filter(question=question).aggregate(Avg('rating'))
-      context['rating'] = rating
       context = super(QuestionDetailView, self).get_context_data(**kwargs)
       question = Question.objects.get(id=self.kwargs['pk'])
       answers = Answer.objects.filter(question=question)
       context['answers'] = answers
+      rating = Answer.objects.filter(question=question).aggregate(Avg('rating'))
+      context['rating'] = rating
       return context
 
 class QuestionUpdateView(UpdateView):
