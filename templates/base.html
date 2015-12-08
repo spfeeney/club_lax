@@ -25,9 +25,12 @@
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
               {% if user.is_authenticated %}
+              <li><a href="{% url 'news' %}">News</a></li>
+              <li><a href="{% url 'about' %}">About Us</a></li>
               <li><a href="{% url 'roster' %}">Roster</a></li>
               <li><a href="{% url 'question_list' %}">Blog</a></li>
               <li><a href="{% url 'question_create' %}">Post a topic</a></li>
+              <li><a href="{% url 'user_detail' slug=user.username %}">Profile</a></li>
               <li><a href="{% url 'auth_logout' %}">Logout</a></li>
               {% else %}
               <li><a href="{% url 'auth_login' %}">Login</a></li>

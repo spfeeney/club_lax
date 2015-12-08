@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+  <h1>About Us</h1>
+  <p> Sleeping Giants Lacrosse Club Lacrosse club | NCLL Division II New England Conference Team of the Year | Hamden, CT | </p>
+</div>
+<div class="container">
+  <p>The Sleeping Giants Lacrosse Club is made up of students from Quinnipiac University. The team has no affiliation with the school whatsoever and gets no funding. The team is entering their fourth year of National Club Lacrosse League play. In 2015 they improved their record to 9-3 after the previous year only going 4-5. The Sleeping Giants won the NCLL Division II New England Conference Championship and were given an opprotunity to play in the 8-team bracket for the National Championship. They won their first game in the quarterfinals to UMBC 13-12 in overtime. The road finally ended in the final four against Binghamton. The 2016 season holds very high expectations with only two graduating seniors and a solid freshmen class. Falling in the final four only made this team stronger and they will accept nothing less than a national championship for hte season to come. The Sleeping Giants hope to one day be recegonized for their hard work by the school and eventually get a home game on the Mt. Carmel Campus.</p>
+<p><iframe width="1120" height="600" src="https://www.youtube.com/embed/Aj6Zgnp8eD8" frameborder="0" allowfullscreen></iframe></p>
+</div>
+{% else %}
+<div class="jumbotron">
+  <h1>Welcome to Sleeping Giants Lacrosse</h1>
+  <p>The offical website of the Sleeping Giants Lacrosse Club!</p>
+  <p><a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}">Create Account</a></p>
+</div>
+{% endif %}
+{% endblock %}

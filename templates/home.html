@@ -1,10 +1,16 @@
 {% extends "base.html" %}
+{% load staticfiles %}
 {% block content %}
 {% if user.is_authenticated %}
 <div class="jumbotron">
   <h1>Sleeping Giants Lacrosse Club</h1>
-  <p> </p>
-  <p><iframe width="854" height="480" src="https://www.youtube.com/embed/j_F5PCJEVJk" frameborder="0" allowfullscreen></iframe></p>
+  <p>Sleeping Giants Lacrosse Club | NCLL Division II New England Conference Team of the Year | 2015 New England Confernece Champions | 2015 National Championship Final 4 | Hamden, CT </p>
+</div>
+<div class="page-header">
+  <h1>2016 Sleeping Giants Preview</h1>
+  <p></p>
+  <p><iframe width="1120" height="600" src="https://www.youtube.com/embed/j_F5PCJEVJk" frameborder="0" allowfullscreen></iframe></p>
+  <p><img src ="{% static "clublax.jpg" %}" alt="My image"> <!-- Images --> </p>
 </div>
 {% else %}
 <div class="jumbotron">
@@ -12,5 +18,7 @@
   <p>The offical website of the Sleeping Giants Lacrosse Club!</p>
   <p><a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}">Create Account</a></p>
 </div>
+
+
 {% endif %}
 {% endblock %}

@@ -11,6 +11,13 @@ class Home(TemplateView):
 class Roster(TemplateView):
   template_name = "team_roster.html"
 
+class About(TemplateView):
+  template_name = "about.html"
+
+class News(TemplateView):
+  template_name = "news.html"
+  
+  
 class QuestionCreateView(CreateView):
     model = Question
     template_name = "question/question_form.html"
@@ -101,20 +108,8 @@ class AnswerDeleteView(DeleteView):
             raise PermissionDenied()
         return object
 
-from django.shortcuts import redirect
-from django.views.generic import FormView
-from .forms import *
-
-class VoteFormView(FormView):
-    form_class = VoteForm
-
-    def form_valid(self, form):
-      user = self.request.user
-      question = Question.objects.get(pk=form.data["question"])
-      prev_votes = Vote.objects.filter(user=user, question=question)
-      has_voted = (prev_votes.count()>0)
-      if not has_voted:
-        Vote.objects.create(user=user, question=question)
-      else:
-        prev_votes[0].delete()
-      return redirect('question_list')
+class UserDetailView(DetailView):
+    model = User
+    slug_field = 'username'
+    template_name = 'user/user_detail.html'
+    context_object_name = 'user_in_view'

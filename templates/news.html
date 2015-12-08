@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="jumbotron">
+  <h1>News</h1>
+  <p> Club Lacrosse Team Seeks Recognition </p>
+</div>
+<div class="container">
+  <p>Club sports are not officially recognized by Quinnipiac and, after years of struggling with the university, the Sleeping Giant Lacrosse Club wants to change that.</p>
+
+<p>This year, the team is not allowed to practice on the turf fields or hold tryouts on the fields on campus, despite their win at last year’s New England Conference in National College Lacrosse League (NCLL) and making it to the semi-finals of the NCLL National Tournament.</p>
+
+<p>The reason the captains and coach are so frustrated by the lack of recognition is because of how far the club team has come over the years.</p>
+
+<p>One of the senior captains, John Whelan, has been with the club team since his freshman year. He said he has watched the team become much more organized and put together.</p>
+
+<p>“It really lacked a lot of structure,” Whelan said. “It wasn’t a well-organized team and we didn’t perform well because of those circumstance. We have an organized team now.”</p>
+
+<p>Whelan recalled times when the club team was kicked off the fields on the Quinnipiac campus because they were not allowed to practice there, even though all the members of the team are current Quinnipiac students.</p>
+
+<p>However, coach and president of the club, Jesse Laico, said the school is making improvements.</p>
+
+<p>“The school is starting to notice club sports and has been working with all the teams to get things moving in the right direction,” Laico said.</p>
+
+<p>Beyond this, the lack of recognition also creates financial problems for the team because they have to fund everything themselves—the uniforms, the trips to conferences and off-campus field time.</p>
+
+<p>“The university does nothing to help us; in fact, they hurt us,” Whelan said.</p>
+
+<p>Whelan said the team even had to finance their own trip to Pennsylvania State University last year for the semi-finals. The team paid for their own bus rental to get to the university and for a one-night stay in hotel rooms.</p>
+
+<p>But this kind of situation pushed the team to be stronger, according to Laico.</p>
+
+<p>“When these kids have full access to the facilities on campus, the recognition, the backing and the funding from the school, there will be no stopping them,” Laico said.</p>
+
+<p>Junior captain Dylan Ix said the captains and the coach recently met with the athletic director at the university. The athletic director told them they are still in a controversy with the university over club sports.</p>
+
+<p>From their meeting with the athletic director, it was confirmed that they were not allowed to use the fields unless they were an intramural team or an athletic team affiliated with the school, according to Ix.</p>
+
+<p>“As soon as we heard that we just thought that was absolutely ridiculous,” Ix said. “As students who are paying a lot of money to come here, we feel we should be able to use the fields here at least.”</p>
+
+<p>The athletic director explained they can technically use the fields, but once they put on a uniform and start having organized practices as a team, that’s a problem, Ix said.</p>
+
+<p>The team is trying to keep a good reputation with the university on this long road to recognition—which is why Ix said they will not practice on the fields on campus.</p>
+
+<p>Without field access, Ix said the team is in search of other places to practice.</p>
+
+<p>“I actually just went to a field behind the abandoned Hamden Middle School,” Ix said. “We’re trying to get some time [to practice and play] there.”</p>
+
+<p>The men’s rugby team—New Blue Rugby—also uses the field. Ix said rather than pay to use the field, the teams are simply encouraged to make a donation to the town of Hamden.</p>
+
+<p>The team intends to make a donation to the town and get full approval before their field usage begins, according to Ix.</p>
+
+<p>Laico said the off-campus field opens up even more for the team; it allows them to have home games and to have a crowd cheering them on.</p>
+
+<p>“We will be having our first ever home games this upcoming spring,” Laico said. “Those sounds—people cheering for you—they make a huge difference in the game and the emotions of the players.”</p>
+
+<p>Right now the team wants to make sure they’re doing everything right, according to Ix.</p>
+
+<p>“We’re just trying to do everything in order so that when the time comes we can have a legitimate, affiliated lacrosse team,” he said.</p>
+
+<p>There is even the possibility of the team becoming somewhat of an unofficial fraternity but just in the case of dues, according to Ix. He said the team might have all members of the team pay a due so they can have money saved up when they need it for things like travelling costs and uniforms.</p>
+
+<p>Whelan said the group of Quinnipiac students that make up the team is so much more than just a lacrosse team.</p>
+
+<p>“For people that don’t have a place in any other club here, even though it’s a sports team, that’s my brotherhood,” Whelan said.</p>
+  
+<p>By Tara O'Neill on September 24, 2015</p>  
+</div>
+{% else %}
+<div class="jumbotron">
+  <h1>Welcome to Sleeping Giants Lacrosse</h1>
+  <p>The offical website of the Sleeping Giants Lacrosse Club!</p>
+  <p><a class="btn btn-lg btn-primary" href="{% url 'registration_register' %}">Create Account</a></p>
+</div>
+{% endif %}
+{% endblock %}
