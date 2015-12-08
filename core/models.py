@@ -1,3 +1,11 @@
+RATING_CHOICES = (
+(0, 'None'),
+(1, '*'),
+(2, '**'),
+(3, '***'),
+(4, '****'),
+(5, '*****'),
+)
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
@@ -15,12 +23,13 @@ class Question(models.Model):
 
   def get_absolute_url(self):
     return reverse("question_detail", args=[self.id])
-  
+
 class Answer(models.Model):
     question = models.ForeignKey(Question)
     user = models.ForeignKey(User)
     created_at = models.DateTimeField(auto_now_add=True)
     text = models.TextField()
+    rating = models.IntegerField(choices=RATING_CHOICES, default=0)
 
     def __unicode__(self):
         return self.text

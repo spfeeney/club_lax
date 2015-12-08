@@ -1,3 +1,4 @@
+from django.db.models import Avg
 from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.views.generic import TemplateView, CreateView, ListView, DetailView, UpdateView, DeleteView
@@ -16,12 +17,12 @@ class About(TemplateView):
 
 class News(TemplateView):
   template_name = "news.html"
-  
-  
+
+
 class QuestionCreateView(CreateView):
     model = Question
     template_name = "question/question_form.html"
-    fields = ['title', 'description', 'visibility']
+    fields = ['title', 'description']
     success_url = reverse_lazy('question_list')
 
     def form_valid(self, form):
@@ -38,6 +39,8 @@ class QuestionDetailView(DetailView):
     template_name = "question/question_detail.html"
 
     def get_context_data(self, **kwargs):
+      rating = Answer.objects.filter(question=question).aggregate(Avg('rating'))
+      context['rating'] = rating
       context = super(QuestionDetailView, self).get_context_data(**kwargs)
       question = Question.objects.get(id=self.kwargs['pk'])
       answers = Answer.objects.filter(question=question)
@@ -69,7 +72,7 @@ class QuestionDeleteView(DeleteView):
 class AnswerCreateView(CreateView):
     model = Answer
     template_name = "answer/answer_form.html"
-    fields = ['text', 'visibility']
+    fields = ['text', 'rating']
 
     def get_success_url(self):
         return self.object.question.get_absolute_url()
@@ -83,7 +86,7 @@ class AnswerUpdateView(UpdateView):
     model = Answer
     pk_url_kwarg = 'answer_pk'
     template_name = 'answer/answer_form.html'
-    fields = ['text']
+    fields = ['text', 'rating']
 
     def get_success_url(self):
         return self.object.question.get_absolute_url()
@@ -113,3 +116,12 @@ class UserDetailView(DetailView):
     slug_field = 'username'
     template_name = 'user/user_detail.html'
     context_object_name = 'user_in_view'
+
+    def get_context_data(self, **kwargs):
+      context = super(UserDetailView, self).get_context_data(**kwargs)
+      user_in_view = User.objects.get(username=self.kwargs['slug'])
+      questions = Question.objects.filter(user=user_in_view).exclude
+      context['questions'] = questions
+      answers = Answer.objects.filter(user=user_in_view).exclude
+      context['answers'] = answers
+      return context
