@@ -1,1 +1,1 @@
-web: gunicorn club_lax.wsgi --logfile -
+web: gunicorn club_lax.wsgi --log-file -
