@@ -46,7 +46,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'core',
     'bootstrap3',
-    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -123,9 +122,3 @@ STATIC_ROOT = 'staticfiles'
 LOGIN_URL = '/user/login'
 LOGIN_REDIRECT = '/question/'
 SITE_ID = 1
-
-# Boto settings
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-#AWS_S3_FORCE_HTTP_URL = True
-#AWS_QUERYSTRING_AUTH = False
-AWS_STORAGE_BUCKET_NAME = 'clublax'
