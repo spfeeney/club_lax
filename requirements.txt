@@ -1,19 +1,11 @@
-Downloading/unpacking freeze
-  Downloading freeze-1.0.9.tar.gz
-  Running setup.py (path:/home/nitrous/.virtualenvs/club_lax/build/freeze/setup.py) egg_info for package freeze
-    Installing with cython
-    
-    Installing without cython
-    
-    
-Downloading/unpacking six (from freeze)
-  Downloading six-1.10.0-py2.py3-none-any.whl
-Installing collected packages: freeze, six
-  Running setup.py install for freeze
-    Installing with cython
-    
-    Installing without cython
-    
-    
-Successfully installed freeze six
-Cleaning up...
+Django==1.8.4
+argparse==1.2.1
+dj-database-url==0.3.0
+dj-static==0.0.6
+django-bootstrap3==6.2.2
+django-registration-redux==1.2
+django-toolbelt==0.0.1
+gunicorn==19.3.0
+psycopg2==2.6.1
+static3==0.6.1
+wsgiref==0.1.2
